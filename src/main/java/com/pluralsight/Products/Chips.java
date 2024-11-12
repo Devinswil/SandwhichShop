@@ -1,6 +1,6 @@
-package Products;
+package com.pluralsight.Products;
 
-import Interface.IPriceable;
+import com.pluralsight.Interface.IPriceable;
 
 public class Chips implements IPriceable {
     private String type;
@@ -19,6 +19,6 @@ public class Chips implements IPriceable {
 
     @Override
     public double getPrice() {
-        return 0;
+        return 1.50;
     }
 }

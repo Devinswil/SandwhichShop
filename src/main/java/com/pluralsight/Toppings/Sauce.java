@@ -1,6 +1,6 @@
-package Toppings;
+package com.pluralsight.Toppings;
 
-import AbstractClasses.AllToppings;
+import com.pluralsight.AbstractClasses.AllToppings;
 
 public class Sauce extends AllToppings {
     public Sauce(String name) {

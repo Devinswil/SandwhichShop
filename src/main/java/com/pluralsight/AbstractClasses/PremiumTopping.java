@@ -1,4 +1,4 @@
-package AbstractClasses;
+package com.pluralsight.AbstractClasses;
 
 public abstract class PremiumTopping extends AllToppings {
     private String name;

@@ -1,9 +1,6 @@
-package UserInterface;
+package com.pluralsight.UserInterface;
 
-import Interface.IPriceable;
-import Products.Chips;
-import Products.Drink;
-import Products.Sandwich;
+import com.pluralsight.Interface.IPriceable;
 
 import java.util.ArrayList;
 import java.util.List;

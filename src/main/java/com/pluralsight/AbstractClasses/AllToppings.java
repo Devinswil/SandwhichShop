@@ -1,6 +1,6 @@
-package AbstractClasses;
+package com.pluralsight.AbstractClasses;
 
-import Interface.IPriceable;
+import com.pluralsight.Interface.IPriceable;
 
 public abstract class AllToppings implements IPriceable {
     private String name;

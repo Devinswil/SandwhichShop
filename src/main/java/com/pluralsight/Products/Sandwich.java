@@ -1,7 +1,7 @@
-package Products;
+package com.pluralsight.Products;
 
-import AbstractClasses.AllToppings;
-import Interface.IPriceable;
+import com.pluralsight.AbstractClasses.AllToppings;
+import com.pluralsight.Interface.IPriceable;
 
 import java.util.List;
 

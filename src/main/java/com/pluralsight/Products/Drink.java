@@ -1,6 +1,6 @@
-package Products;
+package com.pluralsight.Products;
 
-import Interface.IPriceable;
+import com.pluralsight.Interface.IPriceable;
 
 public class Drink implements IPriceable {
     private String flavor;
@@ -29,7 +29,24 @@ public class Drink implements IPriceable {
 
     @Override
     public double getPrice() {
-        return 0;
+        switch (size.toLowerCase()) {
+            case "small":
+                return 2.00;
+            case "medium":
+                return 2.50;
+            case "large":
+                return 3.00;
+            default:
+                return 0.0;
+
+
+        }
+
     }
 
+    @Override
+    public String toString() {
+        return "Drink" + " "+ size+ " " + flavor + " " + "$" + getPrice();
+
+    }
 }

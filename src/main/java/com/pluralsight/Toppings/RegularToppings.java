@@ -1,6 +1,6 @@
-package Toppings;
+package com.pluralsight.Toppings;
 
-import AbstractClasses.AllToppings;
+import com.pluralsight.AbstractClasses.AllToppings;
 
 public class RegularToppings extends AllToppings {
     public RegularToppings(String name) {
