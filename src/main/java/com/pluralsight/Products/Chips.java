@@ -2,7 +2,7 @@ package com.pluralsight.Products;
 
 import com.pluralsight.Interface.IPriceable;
 
-public class Chips implements IPriceable {
+public class Chips {
     private String type;
 
     public String getType() {
@@ -17,8 +17,13 @@ public class Chips implements IPriceable {
         this.type = type;
     }
 
-    @Override
+
     public double getPrice() {
         return 1.50;
+    }
+
+    @Override
+    public String toString() {
+        return "Chips " + type+" "+getPrice() ;
     }
 }

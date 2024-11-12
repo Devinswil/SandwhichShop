@@ -4,18 +4,18 @@ import com.pluralsight.AbstractClasses.PremiumTopping;
 import com.pluralsight.Products.Sandwich;
 
 public class Cheese extends PremiumTopping {
-    private Sandwich sandwich;
+
     public Cheese(String name, Sandwich sandwich) {
         super(name);
-        this.sandwich= sandwich;
+
 
     }
 
 
     @Override
-    public double getPrice() {
-        String sandwichSize = sandwich.getSize();
-        switch (sandwichSize) {
+    public double getPrice(String size) {
+
+        switch (size) {
             case "4'":
                 return .75;
             case "8'":
@@ -27,5 +27,5 @@ public class Cheese extends PremiumTopping {
 
         }
     }
-
 }
+

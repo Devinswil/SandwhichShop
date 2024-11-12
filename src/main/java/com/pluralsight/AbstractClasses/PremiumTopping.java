@@ -1,15 +1,14 @@
 package com.pluralsight.AbstractClasses;
 
-public abstract class PremiumTopping extends AllToppings {
+public abstract class PremiumTopping extends Topping {
     private String name;
 
     public PremiumTopping(String name) {
         super(name);
     }
 
-    public double getPrice() {
-        return 0;
-    }
+
+    public abstract double getPrice(String size);
 
 
 }

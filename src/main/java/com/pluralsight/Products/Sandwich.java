@@ -1,20 +1,23 @@
 package com.pluralsight.Products;
 
-import com.pluralsight.AbstractClasses.AllToppings;
+import com.pluralsight.AbstractClasses.Topping;
 import com.pluralsight.Interface.IPriceable;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sandwich implements IPriceable {
     private String breadType;
     private String size;
-   private List<AllToppings>toppings;
+    private List<Topping> toppings;
     private boolean isToasted;
 
-    public Sandwich(String breadType, String size, List<AllToppings> toppings, boolean isToasted) {
+
+    public Sandwich(String breadType, String size, boolean isToasted) {
         this.breadType = breadType;
         this.size = size;
-        this.toppings = toppings;
+        this.toppings = new ArrayList<>();
         this.isToasted = isToasted;
     }
 
@@ -34,7 +37,7 @@ public class Sandwich implements IPriceable {
         this.size = size;
     }
 
-    public List<AllToppings> getToppings() {
+    public List<Topping> getToppings() {
         return toppings;
     }
 
@@ -50,10 +53,39 @@ public class Sandwich implements IPriceable {
     public double getPrice() {
         return 0;
     }
-    public void addToppings(){}
 
-    public void addSauce(){}
-    public void getToasted(){}
+    public double getSizePrice() {
+
+        double sizePrice = 0;
+
+        if (size.equalsIgnoreCase("4'")) {
+            sizePrice = 4;
+        } else if (size.equalsIgnoreCase("8'")) {
+            sizePrice = 8;
+
+        } else if (size.equalsIgnoreCase("12'")) {
+            sizePrice = 12;
+
+        }
+        return sizePrice;
+    }
+
+    public void addTopping(Topping topping) {
+
+        toppings.add(topping);
+    }
+
+
+
+    public void getToasted() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Ding....Bread has been toasted");
+    }
+    
 
     @Override
     public String toString() {
@@ -65,4 +97,5 @@ public class Sandwich implements IPriceable {
                 '}';
     }
 }
+
 

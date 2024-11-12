@@ -2,10 +2,10 @@ package com.pluralsight.AbstractClasses;
 
 import com.pluralsight.Interface.IPriceable;
 
-public abstract class AllToppings implements IPriceable {
+public abstract class Topping {
     private String name;
 
-    public AllToppings(String name) {
+    public Topping(String name) {
         this.name = name;
     }
 
@@ -17,8 +17,5 @@ public abstract class AllToppings implements IPriceable {
         this.name = name;
     }
 
-    @Override
-    public double getPrice() {
-        return 0;
-    }
+    public abstract double getPrice(String size);
 }
