@@ -8,14 +8,11 @@ import java.util.List;
 
 public class Cart implements IPriceable {
     private String name;
-
-   private List<IPriceable>cart;
-   private  List<Chips>myCart;
-
+    private List<IPriceable> cart;
 
     public Cart(String name) {
         this.name = name;
-        this.cart=new ArrayList<>();
+        this.cart = new ArrayList<>();
     }
 
     public String getName() {
@@ -28,9 +25,28 @@ public class Cart implements IPriceable {
 
     @Override
     public double getPrice() {
-        return 0;
+        double totalPrice = 0;
+        for (IPriceable iPriceable : cart) {
+            totalPrice += iPriceable.getPrice();
+
+        }
+        return totalPrice;
     }
 
-    public void addItem(){}
-    public void displayCart(){}
+    public void addItem(IPriceable iPriceable) {
+        cart.add(iPriceable);
+    }
+
+    public void displayCart() {
+        if (cart.isEmpty()) {
+            System.out.println("Order is empty");
+
+        } else {
+            System.out.println("Items in cart:");
+            for (IPriceable iPriceable : cart) {
+                System.out.println(iPriceable.toString());
+
+            }
+        }
+    }
 }
