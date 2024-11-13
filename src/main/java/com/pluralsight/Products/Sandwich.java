@@ -51,11 +51,11 @@ public class Sandwich implements IPriceable {
 
     @Override
     public double getPrice() {
-        double sandPrice=0;
-        sandPrice+=getBasePrice();
+        double sandPrice = 0;
+        sandPrice += getBasePrice();
         for (Topping topping : toppings) {
-           sandPrice+= topping.getPrice(size);
-            
+            sandPrice += topping.getPrice(size);
+
         }
         return sandPrice;
     }
@@ -64,12 +64,12 @@ public class Sandwich implements IPriceable {
 
         double sizePrice = 0;
 
-        if (size==4) {
+        if (size == 4) {
             sizePrice = 5.50;
-        } else if (size==8) {
+        } else if (size == 8) {
             sizePrice = 7.00;
 
-        } else if (size==12) {
+        } else if (size == 12) {
             sizePrice = 8.50;
 
         }
@@ -82,16 +82,18 @@ public class Sandwich implements IPriceable {
     }
 
 
-
     public void getToasted() {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        if (isToasted) {
+            System.out.println("toasting your sandwich");
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("Ding....Sandwich has been toasted");
         }
-        System.out.println("Ding....Bread has been toasted");
     }
-    
+
 
     @Override
     public String toString() {
