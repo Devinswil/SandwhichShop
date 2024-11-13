@@ -80,6 +80,7 @@ public class OrderInterface {
 
         }
     }
+
     public int getSizeSandwich() {
         while (true) {
             System.out.println("What size sandwich would you like to order?");
@@ -106,6 +107,7 @@ public class OrderInterface {
 
 
     }
+
     public boolean getSandwichToasted() {
         while (true) {
 
@@ -127,30 +129,16 @@ public class OrderInterface {
         }
 
     }
-    public void getToppings(Sandwich sandwich) {
-        while (true) {
-            System.out.println("Would you like to add toppings to your sandwich");
-            System.out.println("1) Yes");
-            System.out.println("2) No");
-            int answer = scanner.nextInt();
-            scanner.nextLine();
 
-            switch (answer) {
-                case 1:
+    public void getToppings(Sandwich sandwich) {
+        System.out.println("Add to sandwich");
                     getCheese(sandwich);
                     getMeat(sandwich);
                     getRegToppings(sandwich);
                     getSauce(sandwich);
-                    break;
-
-                case 2:
-                    return;
-                default:
-                    System.out.println("Invalid option");
-                    break;
-            }
-        }
+        System.out.println("Sandwich is now complete!");
     }
+
     public void getCheese(Sandwich sandwich) {
         boolean running = true;
         while (running) {
@@ -184,12 +172,15 @@ public class OrderInterface {
                     System.out.println("Invalid option");
                     break;
             }
-            sandwich.addTopping(new Cheese(cheese));
-            System.out.println(cheese + " cheese has been added to sandwich.");
-            System.out.println("What other cheese would you like? ");
+            if (cheese != null) {
+                sandwich.addTopping(new Cheese(cheese));
+                System.out.println(cheese + " cheese has been added to sandwich.");
+                System.out.println("What other cheese would you like? ");
 
+            }
         }
     }
+
     public void getMeat(Sandwich sandwich) {
         boolean running = true;
         while (running) {
@@ -231,12 +222,15 @@ public class OrderInterface {
                     System.out.println("Invalid option");
                     break;
             }
-            sandwich.addTopping(new Meat(meat));
-            System.out.println(meat + " meat has been added to sandwich.");
-            System.out.println("What other meat would you like?");
+            if (meat != null) {
+                sandwich.addTopping(new Meat(meat));
+                System.out.println(meat + " meat has been added to sandwich.");
+                System.out.println("What other meat would you like?");
 
+            }
         }
     }
+
     public void getRegToppings(Sandwich sandwich) {
         boolean running = true;
         while (running) {
@@ -285,20 +279,23 @@ public class OrderInterface {
                     break;
                 case 10:
                     running = false;
-                   continue;
+                    continue;
                 default:
                     System.out.println("Invalid option");
                     break;
             }
-            sandwich.addTopping(new RegularTopping(topping));
-            System.out.println(topping + " topping has been added to sandwich.");
-            System.out.println("what other topping would you like?");
+            if (topping != null) {
+                sandwich.addTopping(new RegularTopping(topping));
+                System.out.println(topping + " topping has been added to sandwich.");
+                System.out.println("what other topping would you like?");
+            }
         }
     }
+
     public void getSauce(Sandwich sandwich) {
         boolean running = true;
         while (running) {
-            System.out.println("What Meat would you like to add to your sandwich");
+            System.out.println("What sauce would you like to add to your sandwich");
             System.out.println("Cost will vary on the size of bread!");
             System.out.println("1) Mayo");
             System.out.println("2) Mustard");
@@ -336,10 +333,12 @@ public class OrderInterface {
                     System.out.println("Invalid option");
                     break;
             }
-            sandwich.addTopping(new Sauce(sauce));
-            System.out.println(sauce + " sauce has been added to sandwich.");
-            System.out.println("What other sauce would you like?");
+            if (sauce != null) {
+                sandwich.addTopping(new Sauce(sauce));
+                System.out.println(sauce + " sauce has been added to sandwich.");
+                System.out.println("What other sauce would you like?");
 
+            }
         }
     }
 }
