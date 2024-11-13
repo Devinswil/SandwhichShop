@@ -5,7 +5,7 @@ import com.pluralsight.Products.Sandwich;
 
 public class Meat extends PremiumTopping {
 
-    public Meat(String name, Sandwich sandwich) {
+    public Meat(String name) {
         super(name);
     }
 
