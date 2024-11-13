@@ -2,6 +2,7 @@ package com.pluralsight.UserInterface;
 
 
 import com.pluralsight.Products.Chips;
+import com.pluralsight.Products.Drink;
 import com.pluralsight.Products.Sandwich;
 import com.pluralsight.Toppings.Cheese;
 import com.pluralsight.Toppings.Meat;
@@ -52,6 +53,7 @@ public class OrderInterface {
         }
         getToppings(sandwich);
         getChip();
+        getDrink();
 
         //  System.out.println(sandwich);
     }
@@ -67,7 +69,7 @@ public class OrderInterface {
             System.out.println("4) Sweet Maui Onion");
             int chipChoice = scanner.nextInt();
             scanner.nextLine();
-            String chipFlavor= null;
+            String chipFlavor = null;
             switch (chipChoice) {
                 case 1:
                     chipFlavor = "BBQ";
@@ -87,10 +89,67 @@ public class OrderInterface {
                     return;
 
             }
-            System.out.println(chipFlavor+ "chips have been added to order. ");
-            Chips chips= new Chips(chipFlavor);
-        }else {
+            System.out.println(chipFlavor + "chips have been added to order. ");
+            Chips chips = new Chips(chipFlavor);
+        } else {
             System.out.println("No chips have been added to order.");
+        }
+    }
+
+    public void getDrink() {
+        System.out.println("Would you like to add a drink to your order?");
+        String answer = scanner.nextLine();
+        if (answer.equalsIgnoreCase("yes")) {
+            System.out.println("Choose a drink:");
+            System.out.println("1) Cola");
+            System.out.println("2) Lemonade");
+            System.out.println("3) Iced Tea");
+            System.out.println("4) Water");
+            int drinkChoice = scanner.nextInt();
+            scanner.nextLine();
+            String drinkFlavor = null;
+
+            switch (drinkChoice) {
+                case 1:
+                    drinkFlavor = "Cola";
+                    break;
+                case 2:
+                    drinkFlavor = "Lemonade";
+                    break;
+                case 3:
+                    drinkFlavor = "Iced Tea";
+                    break;
+                case 4:
+                    drinkFlavor = "Water";
+                    break;
+                default:
+                    System.out.println("Invalid option");
+                    return;
+            }
+            System.out.println("What size would you like your? " + drinkFlavor);
+            System.out.println("1) Small");
+            System.out.println("2) Medium");
+            System.out.println("3) Large");
+            int sizeChoice = scanner.nextInt();
+            scanner.nextLine();
+
+            String drinkSize = null;
+            switch (sizeChoice) {
+                case 1:
+                    drinkSize = "Small";
+                    break;
+                case 2:
+                    drinkSize = "Medium";
+                    break;
+                case 3:
+                    drinkSize = "Large";
+                    break;
+                default:
+                    System.out.println("Invalid option");
+                    return;
+            }
+            System.out.println(drinkSize+ " "+drinkFlavor+ "has been added to your order");
+            Drink drink = new Drink(drinkFlavor,drinkSize);
         }
     }
 
