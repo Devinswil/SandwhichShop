@@ -97,12 +97,11 @@ public class Sandwich implements IPriceable {
 
     @Override
     public String toString() {
-        return "Sandwich{" +
-                "breadType='" + breadType + '\'' +
-                ", size='" + size + '\'' +
-                ", toppings=" + toppings +
-                ", isToasted=" + isToasted +
-                '}';
+        return "Sandwich " +
+                "is a" + size + '\'' +
+                ", inch " + breadType + "sub "+'\'' +
+                ", with" + toppings +"on it"+
+                ", isToasted=" + (isToasted ? "yes": "no") ;
     }
 }
 

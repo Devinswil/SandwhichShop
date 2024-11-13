@@ -24,6 +24,7 @@ public class Chips {
 
     @Override
     public String toString() {
-        return "Chips " + type+" "+getPrice() ;
+        return "Chips " + type ;
     }
+
 }

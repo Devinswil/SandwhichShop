@@ -10,5 +10,8 @@ public abstract class PremiumTopping extends Topping {
 
     public abstract double getPrice(int size);
 
-
+    @Override
+    public String toString() {
+        return "PremiumTopping "+ name ;
+    }
 }

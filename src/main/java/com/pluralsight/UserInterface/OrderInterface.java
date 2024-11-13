@@ -1,6 +1,7 @@
 package com.pluralsight.UserInterface;
 
 
+import com.pluralsight.Products.Chips;
 import com.pluralsight.Products.Sandwich;
 import com.pluralsight.Toppings.Cheese;
 import com.pluralsight.Toppings.Meat;
@@ -50,8 +51,47 @@ public class OrderInterface {
             sandwich.getToasted();
         }
         getToppings(sandwich);
+        getChip();
 
-        System.out.println(sandwich);
+        //  System.out.println(sandwich);
+    }
+
+    public void getChip() {
+        System.out.println("Would you like you like to add chips to your order");
+        String answer = scanner.nextLine().toLowerCase();
+        if (answer.equalsIgnoreCase("yes")) {
+            System.out.println("What Bread would you like your sandwich on?");
+            System.out.println("1) BBQ");
+            System.out.println("2) Original");
+            System.out.println("3) Sour Cream & Onion");
+            System.out.println("4) Sweet Maui Onion");
+            int chipChoice = scanner.nextInt();
+            scanner.nextLine();
+            String chipFlavor= null;
+            switch (chipChoice) {
+                case 1:
+                    chipFlavor = "BBQ";
+                    break;
+
+                case 2:
+                    chipFlavor = "Original";
+                    break;
+                case 3:
+                    chipFlavor = "Sour Cream & Onion";
+                    break;
+                case 4:
+                    chipFlavor = "Sweet Maui Onion";
+                    break;
+                default:
+                    System.out.println("invalid option");
+                    return;
+
+            }
+            System.out.println(chipFlavor+ "chips have been added to order. ");
+            Chips chips= new Chips(chipFlavor);
+        }else {
+            System.out.println("No chips have been added to order.");
+        }
     }
 
     public String getBreadType() {
@@ -132,10 +172,10 @@ public class OrderInterface {
 
     public void getToppings(Sandwich sandwich) {
         System.out.println("Add to sandwich");
-                    getCheese(sandwich);
-                    getMeat(sandwich);
-                    getRegToppings(sandwich);
-                    getSauce(sandwich);
+        getCheese(sandwich);
+        getMeat(sandwich);
+        getRegToppings(sandwich);
+        getSauce(sandwich);
         System.out.println("Sandwich is now complete!");
     }
 
@@ -175,7 +215,6 @@ public class OrderInterface {
             if (cheese != null) {
                 sandwich.addTopping(new Cheese(cheese));
                 System.out.println(cheese + " cheese has been added to sandwich.");
-                System.out.println("What other cheese would you like? ");
 
             }
         }
@@ -225,7 +264,6 @@ public class OrderInterface {
             if (meat != null) {
                 sandwich.addTopping(new Meat(meat));
                 System.out.println(meat + " meat has been added to sandwich.");
-                System.out.println("What other meat would you like?");
 
             }
         }
@@ -287,7 +325,6 @@ public class OrderInterface {
             if (topping != null) {
                 sandwich.addTopping(new RegularTopping(topping));
                 System.out.println(topping + " topping has been added to sandwich.");
-                System.out.println("what other topping would you like?");
             }
         }
     }
@@ -336,7 +373,6 @@ public class OrderInterface {
             if (sauce != null) {
                 sandwich.addTopping(new Sauce(sauce));
                 System.out.println(sauce + " sauce has been added to sandwich.");
-                System.out.println("What other sauce would you like?");
 
             }
         }
