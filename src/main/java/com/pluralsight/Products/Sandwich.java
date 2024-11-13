@@ -9,12 +9,12 @@ import java.util.List;
 
 public class Sandwich implements IPriceable {
     private String breadType;
-    private String size;
+    private double size;
     private List<Topping> toppings;
     private boolean isToasted;
 
 
-    public Sandwich(String breadType, String size, boolean isToasted) {
+    public Sandwich(String breadType, double size, boolean isToasted) {
         this.breadType = breadType;
         this.size = size;
         this.toppings = new ArrayList<>();
@@ -29,11 +29,11 @@ public class Sandwich implements IPriceable {
         this.breadType = breadType;
     }
 
-    public String getSize() {
+    public double getSize() {
         return size;
     }
 
-    public void setSize(String size) {
+    public void setSize(double size) {
         this.size = size;
     }
 
@@ -51,20 +51,26 @@ public class Sandwich implements IPriceable {
 
     @Override
     public double getPrice() {
-        return 0;
+        double sandPrice=0;
+        sandPrice+=getBasePrice();
+        for (Topping topping : toppings) {
+           sandPrice+= topping.getPrice(size);
+            
+        }
+        return sandPrice;
     }
 
-    public double getSizePrice() {
+    public double getBasePrice() {
 
         double sizePrice = 0;
 
-        if (size.equalsIgnoreCase("4'")) {
-            sizePrice = 4;
-        } else if (size.equalsIgnoreCase("8'")) {
-            sizePrice = 8;
+        if (size==4) {
+            sizePrice = 5.50;
+        } else if (size==8) {
+            sizePrice = 7.00;
 
-        } else if (size.equalsIgnoreCase("12'")) {
-            sizePrice = 12;
+        } else if (size==12) {
+            sizePrice = 8.50;
 
         }
         return sizePrice;

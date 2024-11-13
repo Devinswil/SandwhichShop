@@ -1,6 +1,7 @@
 package com.pluralsight.UserInterface;
 
 import com.pluralsight.Interface.IPriceable;
+import com.pluralsight.Products.Chips;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,7 @@ public class Cart implements IPriceable {
     private String name;
 
    private List<IPriceable>cart;
+   private  List<Chips>myCart;
 
 
     public Cart(String name) {
