@@ -6,6 +6,7 @@ import com.pluralsight.Toppings.Cheese;
 import com.pluralsight.Toppings.Meat;
 import com.pluralsight.Toppings.RegularTopping;
 import com.pluralsight.Toppings.Sauce;
+import com.sun.security.jgss.GSSUtil;
 
 import java.util.Scanner;
 
@@ -79,8 +80,6 @@ public class OrderInterface {
 
         }
     }
-
-
     public int getSizeSandwich() {
         while (true) {
             System.out.println("What size sandwich would you like to order?");
@@ -107,7 +106,6 @@ public class OrderInterface {
 
 
     }
-
     public boolean getSandwichToasted() {
         while (true) {
 
@@ -129,7 +127,6 @@ public class OrderInterface {
         }
 
     }
-
     public void getToppings(Sandwich sandwich) {
         while (true) {
             System.out.println("Would you like to add toppings to your sandwich");
@@ -142,16 +139,18 @@ public class OrderInterface {
                 case 1:
                     getCheese(sandwich);
                     getMeat(sandwich);
+                    getRegToppings(sandwich);
+                    getSauce(sandwich);
+                    break;
 
                 case 2:
-
+                    return;
                 default:
                     System.out.println("Invalid option");
                     break;
             }
         }
     }
-
     public void getCheese(Sandwich sandwich) {
         boolean running = true;
         while (running) {
@@ -180,22 +179,17 @@ public class OrderInterface {
                     break;
                 case 5:
                     running = false;
-                    break;
+                    continue;
                 default:
                     System.out.println("Invalid option");
                     break;
             }
             sandwich.addTopping(new Cheese(cheese));
             System.out.println(cheese + " cheese has been added to sandwich.");
-            System.out.println("Would you like to add more cheese? Yes/No");
-            String response = scanner.nextLine().toLowerCase();
-            if (response.equalsIgnoreCase("no")) {
-                running = false;
-            }
+            System.out.println("What other cheese would you like? ");
 
         }
     }
-
     public void getMeat(Sandwich sandwich) {
         boolean running = true;
         while (running) {
@@ -232,22 +226,17 @@ public class OrderInterface {
                     break;
                 case 7:
                     running = false;
-                    break;
+                    continue;
                 default:
                     System.out.println("Invalid option");
                     break;
             }
             sandwich.addTopping(new Meat(meat));
             System.out.println(meat + " meat has been added to sandwich.");
-            System.out.println("Would you like to add more meat? Yes/No");
-            String response = scanner.nextLine().toLowerCase();
-            if (response.equalsIgnoreCase("no")) {
-                running = false;
-            }
+            System.out.println("What other meat would you like?");
 
         }
     }
-
     public void getRegToppings(Sandwich sandwich) {
         boolean running = true;
         while (running) {
@@ -296,22 +285,16 @@ public class OrderInterface {
                     break;
                 case 10:
                     running = false;
-                    break;
+                   continue;
                 default:
                     System.out.println("Invalid option");
                     break;
             }
             sandwich.addTopping(new RegularTopping(topping));
             System.out.println(topping + " topping has been added to sandwich.");
-            System.out.println("Would you like to add more topping? Yes/No");
-            String response = scanner.nextLine().toLowerCase();
-            if (response.equalsIgnoreCase("no")) {
-                running = false;
-            }
-
+            System.out.println("what other topping would you like?");
         }
     }
-
     public void getSauce(Sandwich sandwich) {
         boolean running = true;
         while (running) {
@@ -329,37 +312,33 @@ public class OrderInterface {
             String sauce = null;
             switch (answer) {
                 case 1:
-                    sauce = "Steak";
+                    sauce = "Mayo";
                     break;
                 case 2:
-                    sauce = "Ham";
+                    sauce = "Mustard";
                     break;
                 case 3:
-                    sauce = "Salami";
+                    sauce = "Ketchup";
                     break;
                 case 4:
-                    sauce = "Roast Beef";
+                    sauce = "Ranch";
                     break;
                 case 5:
-                    sauce = "Chicken";
+                    sauce = "Thousand island";
                     break;
                 case 6:
-                    sauce = "Bacon";
+                    sauce = "Vinaigrette";
                     break;
                 case 7:
                     running = false;
-                    break;
+                    continue;
                 default:
                     System.out.println("Invalid option");
                     break;
             }
             sandwich.addTopping(new Sauce(sauce));
-            System.out.println(sauce + " meat has been added to sandwich.");
-            System.out.println("Would you like to add more meat? Yes/No");
-            String response = scanner.nextLine().toLowerCase();
-            if (response.equalsIgnoreCase("no")) {
-                running = false;
-            }
+            System.out.println(sauce + " sauce has been added to sandwich.");
+            System.out.println("What other sauce would you like?");
 
         }
     }

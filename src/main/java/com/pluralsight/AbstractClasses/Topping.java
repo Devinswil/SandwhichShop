@@ -18,4 +18,10 @@ public abstract class Topping {
     }
 
     public abstract double getPrice(int size);
+
+    @Override
+    public String toString() {
+        return "Topping" + name ;
+    }
 }
+
