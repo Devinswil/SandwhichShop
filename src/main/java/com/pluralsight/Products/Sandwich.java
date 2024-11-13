@@ -9,12 +9,12 @@ import java.util.List;
 
 public class Sandwich implements IPriceable {
     private String breadType;
-    private double size;
+    private int size;
     private List<Topping> toppings;
     private boolean isToasted;
 
 
-    public Sandwich(String breadType, double size, boolean isToasted) {
+    public Sandwich(String breadType, int size, boolean isToasted) {
         this.breadType = breadType;
         this.size = size;
         this.toppings = new ArrayList<>();
@@ -33,7 +33,7 @@ public class Sandwich implements IPriceable {
         return size;
     }
 
-    public void setSize(double size) {
+    public void setSize(int size) {
         this.size = size;
     }
 

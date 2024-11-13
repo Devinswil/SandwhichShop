@@ -8,7 +8,7 @@ public abstract class PremiumTopping extends Topping {
     }
 
 
-    public abstract double getPrice(String size);
+    public abstract double getPrice(int size);
 
 
 }

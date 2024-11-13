@@ -5,7 +5,7 @@ import com.pluralsight.Products.Sandwich;
 
 public class Cheese extends PremiumTopping {
 
-    public Cheese(String name, Sandwich sandwich) {
+    public Cheese(String name) {
         super(name);
 
 
@@ -13,14 +13,14 @@ public class Cheese extends PremiumTopping {
 
 
     @Override
-    public double getPrice(String size) {
+    public double getPrice(int size) {
 
         switch (size) {
-            case "4'":
+            case 4:
                 return .75;
-            case "8'":
+            case 8:
                 return 1.50;
-            case "12'":
+            case 12:
                 return 2.25;
             default:
                 return 0.0;
@@ -28,4 +28,6 @@ public class Cheese extends PremiumTopping {
         }
     }
 }
+
+
 

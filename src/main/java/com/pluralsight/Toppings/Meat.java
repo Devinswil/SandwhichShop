@@ -12,14 +12,14 @@ public class Meat extends PremiumTopping {
 
 
     @Override
-    public double getPrice(String size) {
+    public double getPrice(int size) {
 
         switch (size) {
-            case "4'":
+            case 4 :
                 return 1.0;
-            case "8'":
+            case 8:
                 return 2.0;
-            case "12'":
+            case 12:
                 return 3.0;
             default:
                 return 0.0;

@@ -35,16 +35,19 @@ public class OrderInterface {
     }
 
     public void takeOrder() {
-        double sandwichSize = getSizeSandwich();
-        String breadType=getBreadSize();
-        boolean istoasted=getSandwichToasted();
+        int sandwichSize = getSizeSandwich();
+        String breadType = getBreadType();
+        boolean istoasted = getSandwichToasted();
 
-        Sandwich sandwich=new Sandwich(breadType,sandwichSize,istoasted);
-        sandwich.getToasted();
+        Sandwich sandwich = new Sandwich(breadType, sandwichSize, istoasted);
+        if (istoasted) {
+            sandwich.getToasted();
+        }
+
         System.out.println(sandwich);
     }
 
-    public String getBreadSize() {
+    public String getBreadType() {
         while (true) {
             System.out.println("What Bread would you like your sandwich on?");
             System.out.println("1) White");
@@ -56,13 +59,13 @@ public class OrderInterface {
             String breadChoice = null;
             switch (answer) {
                 case 1:
-                   return "White";
+                    return "White";
                 case 2:
                     return "Wheat";
                 case 3:
-                    return  "Rye";
+                    return "Rye";
                 case 4:
-                    return  "Wrap";
+                    return "Wrap";
                 default:
                     System.out.println("Invalid option");
                     break;
@@ -72,7 +75,7 @@ public class OrderInterface {
     }
 
 
-    public double getSizeSandwich() {
+    public int getSizeSandwich() {
         while (true) {
             System.out.println("What size sandwich would you like to order?");
             System.out.println("1) 4'");
@@ -98,6 +101,7 @@ public class OrderInterface {
 
 
     }
+
     public boolean getSandwichToasted() {
         while (true) {
 
@@ -117,5 +121,26 @@ public class OrderInterface {
                     break;
             }
         }
+
+    }
+    public void getToppings(Sandwich sandwich){
+        while (true) {
+            System.out.println("Would you like to add toppings to your sandwich");
+            System.out.println("1) Yes");
+            System.out.println("2) No");
+            int answer = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (answer) {
+                case 1:
+
+                    return true;
+
+                case 2:
+                    return false;
+                default:
+                    System.out.println("Invalid option");
+                    break;
+            }
     }
 }
