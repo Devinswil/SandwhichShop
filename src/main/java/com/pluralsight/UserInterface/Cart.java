@@ -7,21 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cart implements IPriceable {
-    private String name;
     private List<IPriceable> cart;
 
-    public Cart(String name) {
-        this.name = name;
+    public Cart() {
+
         this.cart = new ArrayList<>();
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     @Override
     public double getPrice() {
@@ -44,9 +37,10 @@ public class Cart implements IPriceable {
         } else {
             System.out.println("Items in cart:");
             for (IPriceable iPriceable : cart) {
-                System.out.println(iPriceable.toString());
+                System.out.println(iPriceable.toString() + " -price: "+ iPriceable.getPrice());
 
             }
+            System.out.println("Total Price: " + getPrice());
         }
     }
 }

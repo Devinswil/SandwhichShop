@@ -2,7 +2,7 @@ package com.pluralsight.Products;
 
 import com.pluralsight.Interface.IPriceable;
 
-public class Chips {
+public class Chips implements IPriceable {
     private String type;
 
     public String getType() {

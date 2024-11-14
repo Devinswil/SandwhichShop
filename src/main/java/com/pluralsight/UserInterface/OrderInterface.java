@@ -1,6 +1,7 @@
 package com.pluralsight.UserInterface;
 
 
+import com.pluralsight.Interface.IPriceable;
 import com.pluralsight.Products.Chips;
 import com.pluralsight.Products.Drink;
 import com.pluralsight.Products.Sandwich;
@@ -15,6 +16,7 @@ import java.util.Scanner;
 
 public class OrderInterface {
     private static final Scanner scanner = new Scanner(System.in);
+    Cart foodCart = new Cart();
 
 
     public void display() {
@@ -43,6 +45,7 @@ public class OrderInterface {
     }
 
     public void takeOrder() {
+
         int sandwichSize = getSizeSandwich();
         String breadType = getBreadType();
         boolean istoasted = getSandwichToasted();
@@ -52,15 +55,22 @@ public class OrderInterface {
             sandwich.getToasted();
         }
         getToppings(sandwich);
-        getChip();
-        getDrink();
+        foodCart.addItem(sandwich);
 
-        //  System.out.println(sandwich);
+        Chips chips = getChip();
+        if (chips != null) {
+            foodCart.addItem(chips);
+        }
+
+       Drink drink= getDrink();
+        if (drink != null){
+            foodCart.addItem(drink);
     }
 
-    public void getChip() {
-        boolean running = true;
-        while (running) {
+}
+
+    public Chips getChip() {
+        while (true) {
             System.out.println("Would you like you like to add chips to your order");
             String answer = scanner.nextLine().toLowerCase();
             if (answer.equalsIgnoreCase("yes")) {
@@ -88,24 +98,21 @@ public class OrderInterface {
                         break;
                     default:
                         System.out.println("invalid option");
-                        return;
+                        continue;
 
                 }
                 System.out.println(chipFlavor + " chips have been added to your order.");
-                Chips chips = new Chips(chipFlavor);
-                running = false;
+                return new Chips(chipFlavor);
             } else if (answer.equalsIgnoreCase("no")) {
                 System.out.println("No chips have been added to your order.");
-                running = false;
             } else {
                 System.out.println("Invalid option. Please respond with 'yes' or 'no'.");
             }
         }
     }
 
-    public void getDrink() {
-        boolean running = true;
-        while (running) {
+    public Drink getDrink() {
+        while (true) {
             System.out.println("Would you like to add a drink to your order?");
             String answer = scanner.nextLine();
             if (answer.equalsIgnoreCase("yes")) {
@@ -125,7 +132,7 @@ public class OrderInterface {
                     case 4 -> drinkFlavor = "Water";
                     default -> {
                         System.out.println("Invalid option");
-                        return;
+                        continue;
                     }
                 }
                 System.out.println("What size would you like your " + drinkFlavor + "?");
@@ -153,11 +160,9 @@ public class OrderInterface {
                 }
 
                 System.out.println(drinkSize + " " + drinkFlavor + " has been added to your order.");
-                Drink drink = new Drink(drinkFlavor, drinkSize);
-                running = false;
+                return new Drink(drinkFlavor, drinkSize);
             } else if (answer.equalsIgnoreCase("no")) {
                 System.out.println("No drink has been added to your order.");
-                running = false;
             } else {
                 System.out.println("Invalid option.");
             }
@@ -396,6 +401,7 @@ public class OrderInterface {
             }
         }
     }
+
 }
 
 
