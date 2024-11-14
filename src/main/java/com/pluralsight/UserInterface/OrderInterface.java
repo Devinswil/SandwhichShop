@@ -45,7 +45,7 @@ public class OrderInterface {
             System.out.println("1- Order Sandwich");
             System.out.println("2- Add Chips");
             System.out.println("3- Add Drink");
-            System.out.println("4- DisplayOrder");
+            System.out.println("4- Display Order");
             System.out.println("5- Cancel order");
             int answer = scanner.nextInt();
             scanner.nextLine();
@@ -55,7 +55,10 @@ public class OrderInterface {
                 case 2 -> orderChip();
                 case 3 -> orderDrink();
                 case 4 -> displayOrder();
-                case 5 -> running = false;
+                case 5 -> {
+                    foodCart.clearCart();
+                    running = false;
+                }
                 default -> System.out.println("Invalid option");
             }
             if (checkOrder) {
@@ -325,7 +328,7 @@ public class OrderInterface {
 
     public Chips getChip() {
         while (true) {
-            System.out.println("What Bread would you like your sandwich on?");
+            System.out.println("What Chip would you like?");
             System.out.println("1) BBQ");
             System.out.println("2) Original");
             System.out.println("3) Sour Cream & Onion");
