@@ -24,8 +24,8 @@ public class OrderInterface {
             System.out.println("****** Welcome to Dev-lious Subs ******");
             System.out.println("please select a number for corresponding selection");
             System.out.println("Would you like to place and order?");
-            System.out.println("1)Yes");
-            System.out.println("2)No");
+            System.out.println("1-Yes");
+            System.out.println("2-No");
             int answer = scanner.nextInt();
 
             switch (answer) {
@@ -69,7 +69,7 @@ public class OrderInterface {
 
     public void displayOrder() {
         foodCart.displayCart();
-        if (foodCart != null) {
+        if (!foodCart.isEmpty()) {
             System.out.println("Would you like to check out?");
             String response = scanner.nextLine();
             if (response.equalsIgnoreCase("yes")) {
@@ -92,7 +92,7 @@ public class OrderInterface {
         if (istoasted) {
             sandwich.getToasted();
         }
-        getToppings(sandwich);
+        buildSandwich(sandwich);
         foodCart.addItem(sandwich);
 
     }
@@ -129,9 +129,9 @@ public class OrderInterface {
     public int getSizeSandwich() {
         while (true) {
             System.out.println("What size sandwich would you like to order?");
-            System.out.println("1) 4'");
-            System.out.println("2) 8'");
-            System.out.println("3) 12'");
+            System.out.println("1- 4'");
+            System.out.println("2- 8'");
+            System.out.println("3- 12'");
 
             int answer = scanner.nextInt();
             scanner.nextLine();
@@ -158,8 +158,8 @@ public class OrderInterface {
         while (true) {
 
             System.out.println("Would you like your sandwich toasted?");
-            System.out.println("1) Yes");
-            System.out.println("2) No");
+            System.out.println("1- Yes");
+            System.out.println("2- No");
             int answer = scanner.nextInt();
             scanner.nextLine();
 
@@ -176,24 +176,16 @@ public class OrderInterface {
 
     }
 
-    public void getToppings(Sandwich sandwich) {
-        getCheese(sandwich);
-        getMeat(sandwich);
-        getRegToppings(sandwich);
-        getSauce(sandwich);
-        System.out.println("Sandwich is now complete!");
-    }
-
     public void getCheese(Sandwich sandwich) {
         System.out.println("What cheese would you like to add to your sandwich");
         System.out.println("Cost of Premium toppings will vary on the size of bread!");
         boolean running = true;
         while (running) {
-            System.out.println("1) American");
-            System.out.println("2) Provolone");
-            System.out.println("3) Cheddar");
-            System.out.println("4) Swiss");
-            System.out.println("5) That's it");
+            System.out.println("1- American");
+            System.out.println("2- Provolone");
+            System.out.println("3- Cheddar");
+            System.out.println("4- Swiss");
+            System.out.println("5- That's it");
             int answer = scanner.nextInt();
             scanner.nextLine();
             String cheese = null;
@@ -220,13 +212,13 @@ public class OrderInterface {
         System.out.println("What Meat would you like to add to your sandwich");
         boolean running = true;
         while (running) {
-            System.out.println("1) Steak");
-            System.out.println("2) Ham");
-            System.out.println("3) Salami");
-            System.out.println("4) Roast Beef");
-            System.out.println("5) Chicken");
-            System.out.println("6) Bacon");
-            System.out.println("7) That's it");
+            System.out.println("1- Steak");
+            System.out.println("2- Ham");
+            System.out.println("3- Salami");
+            System.out.println("4- Roast Beef");
+            System.out.println("5- Chicken");
+            System.out.println("6- Bacon");
+            System.out.println("7- That's it");
             int answer = scanner.nextInt();
             scanner.nextLine();
             String meat = null;
@@ -255,16 +247,16 @@ public class OrderInterface {
         System.out.println("What toppings would you like to add to your sandwich");
         boolean running = true;
         while (running) {
-            System.out.println("1) Lettuce");
-            System.out.println("2) Peppers");
-            System.out.println("3) Onions");
-            System.out.println("4) Tomatoes");
-            System.out.println("5) Jalapenos");
-            System.out.println("6) Cucumbers");
-            System.out.println("7) Pickles");
-            System.out.println("8) Guacamole");
-            System.out.println("9) Mushrooms");
-            System.out.println("10) That's it");
+            System.out.println("1- Lettuce");
+            System.out.println("2- Peppers");
+            System.out.println("3- Onions");
+            System.out.println("4- Tomatoes");
+            System.out.println("5- Jalapenos");
+            System.out.println("6- Cucumbers");
+            System.out.println("7- Pickles");
+            System.out.println("8- Guacamole");
+            System.out.println("9- Mushrooms");
+            System.out.println("0- That's it");
             int answer = scanner.nextInt();
             scanner.nextLine();
             String topping = null;
@@ -278,7 +270,7 @@ public class OrderInterface {
                 case 7 -> topping = "Pickles";
                 case 8 -> topping = "Guacamole";
                 case 9 -> topping = "Mushrooms";
-                case 10 -> {
+                case 0 -> {
                     running = false;
                     continue;
                 }
@@ -295,13 +287,13 @@ public class OrderInterface {
         System.out.println("What sauce would you like to add to your sandwich");
         boolean running = true;
         while (running) {
-            System.out.println("1) Mayo");
-            System.out.println("2) Mustard");
-            System.out.println("3) Ketchup");
-            System.out.println("4) Ranch");
-            System.out.println("5) Thousand island");
-            System.out.println("6) Vinaigrette");
-            System.out.println("7) That's it");
+            System.out.println("1- Mayo");
+            System.out.println("2- Mustard");
+            System.out.println("3- Ketchup");
+            System.out.println("4- Ranch");
+            System.out.println("5- Thousand island");
+            System.out.println("6- Vinaigrette");
+            System.out.println("7- That's it");
             int answer = scanner.nextInt();
             scanner.nextLine();
             String sauce = null;
@@ -325,14 +317,21 @@ public class OrderInterface {
             }
         }
     }
+    public void buildSandwich(Sandwich sandwich) {
+        getCheese(sandwich);
+        getMeat(sandwich);
+        getRegToppings(sandwich);
+        getSauce(sandwich);
+        System.out.println("Sandwich is now complete!");
+    }//takes all toppings and apply them into sandwich
 
     public Chips getChip() {
         while (true) {
             System.out.println("What Chip would you like?");
-            System.out.println("1) BBQ");
-            System.out.println("2) Original");
-            System.out.println("3) Sour Cream & Onion");
-            System.out.println("4) Sweet Maui Onion");
+            System.out.println("1- BBQ");
+            System.out.println("2- Original");
+            System.out.println("3- Sour Cream & Onion");
+            System.out.println("4- Sweet Maui Onion");
             int chipChoice = scanner.nextInt();
             scanner.nextLine();
             String chipFlavor = null;
@@ -350,7 +349,7 @@ public class OrderInterface {
             return new Chips(chipFlavor);
 
         }
-    }
+    }//ask for inputs
 
     public void orderChip() {
         Chips chips = getChip();
@@ -358,57 +357,57 @@ public class OrderInterface {
             foodCart.addItem(chips);
         }
 
-    }
+    }//saves input into chip
 
     public Drink getDrink() {
         while (true) {
-                System.out.println("Choose a drink:");
-                System.out.println("1) Cola");
-                System.out.println("2) Lemonade");
-                System.out.println("3) Iced Tea");
-                System.out.println("4) Water");
-                int drinkChoice = scanner.nextInt();
-                scanner.nextLine();
-                String drinkFlavor = null;
+            System.out.println("Choose a drink:");
+            System.out.println("1- Cola");
+            System.out.println("2- Lemonade");
+            System.out.println("3- Iced Tea");
+            System.out.println("4- Water");
+            int drinkChoice = scanner.nextInt();
+            scanner.nextLine();
+            String drinkFlavor = null;
 
-                switch (drinkChoice) {
-                    case 1 -> drinkFlavor = "Cola";
-                    case 2 -> drinkFlavor = "Lemonade";
-                    case 3 -> drinkFlavor = "Iced Tea";
-                    case 4 -> drinkFlavor = "Water";
-                    default -> {
-                        System.out.println("Invalid option");
-                        continue;
-                    }
+            switch (drinkChoice) {
+                case 1 -> drinkFlavor = "Cola";
+                case 2 -> drinkFlavor = "Lemonade";
+                case 3 -> drinkFlavor = "Iced Tea";
+                case 4 -> drinkFlavor = "Water";
+                default -> {
+                    System.out.println("Invalid option");
+                    continue;
                 }
-                System.out.println("What size would you like your " + drinkFlavor + "?");
-                System.out.println("1) Small");
-                System.out.println("2) Medium");
-                System.out.println("3) Large");
-                int sizeChoice = scanner.nextInt();
-                scanner.nextLine();
-                String drinkSize = null;
-                switch (sizeChoice) {
-                    case 1 -> drinkSize = "Small";
-                    case 2 -> drinkSize = "Medium";
-                    case 3 -> drinkSize = "Large";
-                    default -> {
-                        System.out.println("Invalid option. Please select a valid size.");
-                        continue;
-                    }
+            }
+            System.out.println("What size would you like your " + drinkFlavor + "?");
+            System.out.println("1- Small");
+            System.out.println("2- Medium");
+            System.out.println("3- Large");
+            int sizeChoice = scanner.nextInt();
+            scanner.nextLine();
+            String drinkSize = null;
+            switch (sizeChoice) {
+                case 1 -> drinkSize = "Small";
+                case 2 -> drinkSize = "Medium";
+                case 3 -> drinkSize = "Large";
+                default -> {
+                    System.out.println("Invalid option. Please select a valid size.");
+                    continue;
                 }
-                System.out.println(drinkSize + " " + drinkFlavor + " has been added to your order.");
-                return new Drink(drinkFlavor, drinkSize);
+            }
+            System.out.println(drinkSize + " " + drinkFlavor + " has been added to your order.");
+            return new Drink(drinkFlavor, drinkSize);
 
         }
-    }
+    }//ask for inputs
 
     public void orderDrink() {
         Drink drink = getDrink();
         if (drink != null) {
             foodCart.addItem(drink);
         }
-    }
+    }//saves input into drink
 
 
 }
