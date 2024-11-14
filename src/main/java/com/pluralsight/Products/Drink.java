@@ -1,8 +1,9 @@
 package com.pluralsight.Products;
 
+import com.pluralsight.AbstractClasses.Merchandise;
 import com.pluralsight.Interface.IPriceable;
 
-public class Drink implements IPriceable {
+public class Drink extends Merchandise {
     private String flavor;
     private String size;
 

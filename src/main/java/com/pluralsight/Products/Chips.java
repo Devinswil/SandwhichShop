@@ -1,8 +1,9 @@
 package com.pluralsight.Products;
 
+import com.pluralsight.AbstractClasses.Merchandise;
 import com.pluralsight.Interface.IPriceable;
 
-public class Chips implements IPriceable {
+public class Chips extends Merchandise {
     private String type;
 
     public String getType() {

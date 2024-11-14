@@ -1,7 +1,7 @@
 package com.pluralsight.UserInterface;
 
 
-import com.pluralsight.Interface.IPriceable;
+
 import com.pluralsight.Products.Chips;
 import com.pluralsight.Products.Drink;
 import com.pluralsight.Products.Sandwich;
@@ -9,7 +9,7 @@ import com.pluralsight.Toppings.Cheese;
 import com.pluralsight.Toppings.Meat;
 import com.pluralsight.Toppings.RegularTopping;
 import com.pluralsight.Toppings.Sauce;
-import com.sun.security.jgss.GSSUtil;
+
 
 import java.util.Scanner;
 
@@ -30,16 +30,9 @@ public class OrderInterface {
             int answer = scanner.nextInt();
 
             switch (answer) {
-                case 1:
-                  menu();
-                    break;
-                case 2:
-                    running = false;
-                    break;
-                default:
-                    System.out.println("Invalid option");
-                    break;
-
+                case 1 -> menu();
+                case 2 -> running = false;
+                default -> System.out.println("Invalid option");
             }
         }
     }
@@ -59,39 +52,26 @@ public class OrderInterface {
 
     }
 
-public void menu(){
-    boolean running = true;
-    while (running) {
-        System.out.println("1- Take Sandwich order");
-        System.out.println("2- Add Chips");
-        System.out.println("3- Add Drink");
-        System.out.println("4- Show order");
-        System.out.println("5- Checkout");
-        System.out.println("6- Cancel order");
-        int answer = scanner.nextInt();
+    public void menu() {
+        boolean running = true;
+        while (running) {
+            System.out.println("1- Take Sandwich order");
+            System.out.println("2- Add Chips");
+            System.out.println("3- Add Drink");
+            System.out.println("4- Show order");
+            System.out.println("5- Checkout");
+            System.out.println("6- Cancel order");
+            int answer = scanner.nextInt();
 
-        switch (answer) {
-            case 1:
-                takeSandwichOrder();
-                break;
-            case 2:
-              orderChip();
-                break;
-            case 3:
-                orderDrink();
-                break;
-            case 4:
-               displayOrder();
-               break;
-            case 5:
-
-            default:
-                System.out.println("Invalid option");
-                break;
-
+            switch (answer) {
+                case 1 -> takeSandwichOrder();
+                case 2 -> orderChip();
+                case 3 -> orderDrink();
+                case 4 -> displayOrder();
+                default -> System.out.println("Invalid option");
+            }
         }
     }
-}
 
     public Chips getChip() {
         while (true) {
@@ -107,23 +87,14 @@ public void menu(){
                 scanner.nextLine();
                 String chipFlavor = null;
                 switch (chipChoice) {
-                    case 1:
-                        chipFlavor = "BBQ";
-                        break;
-
-                    case 2:
-                        chipFlavor = "Original";
-                        break;
-                    case 3:
-                        chipFlavor = "Sour Cream & Onion";
-                        break;
-                    case 4:
-                        chipFlavor = "Sweet Maui Onion";
-                        break;
-                    default:
+                    case 1 -> chipFlavor = "BBQ";
+                    case 2 -> chipFlavor = "Original";
+                    case 3 -> chipFlavor = "Sour Cream & Onion";
+                    case 4 -> chipFlavor = "Sweet Maui Onion";
+                    default -> {
                         System.out.println("invalid option");
                         continue;
-
+                    }
                 }
                 System.out.println(chipFlavor + " chips have been added to your order.");
                 return new Chips(chipFlavor);
@@ -134,6 +105,7 @@ public void menu(){
             }
         }
     }
+
     public Drink getDrink() {
         while (true) {
             System.out.println("Would you like to add a drink to your order?");
@@ -168,18 +140,13 @@ public void menu(){
 
                 String drinkSize = null;
                 switch (sizeChoice) {
-                    case 1:
-                        drinkSize = "Small";
-                        break;
-                    case 2:
-                        drinkSize = "Medium";
-                        break;
-                    case 3:
-                        drinkSize = "Large";
-                        break;
-                    default:
+                    case 1 -> drinkSize = "Small";
+                    case 2 -> drinkSize = "Medium";
+                    case 3 -> drinkSize = "Large";
+                    default -> {
                         System.out.println("Invalid option. Please select a valid size.");
                         continue;
+                    }
                 }
 
                 System.out.println(drinkSize + " " + drinkFlavor + " has been added to your order.");
@@ -191,6 +158,7 @@ public void menu(){
             }
         }
     }
+
     public String getBreadType() {
         while (true) {
             System.out.println("What Bread would you like your sandwich on?");
@@ -219,6 +187,7 @@ public void menu(){
 
         }
     }
+
     public int getSizeSandwich() {
         while (true) {
             System.out.println("What size sandwich would you like to order?");
@@ -246,6 +215,7 @@ public void menu(){
 
 
     }
+
     public boolean getSandwichToasted() {
         while (true) {
 
@@ -267,6 +237,7 @@ public void menu(){
         }
 
     }
+
     public void getToppings(Sandwich sandwich) {
         System.out.println("Add to sandwich");
         getCheese(sandwich);
@@ -275,6 +246,7 @@ public void menu(){
         getSauce(sandwich);
         System.out.println("Sandwich is now complete!");
     }
+
     public void getCheese(Sandwich sandwich) {
         boolean running = true;
         while (running) {
@@ -306,6 +278,7 @@ public void menu(){
             }
         }
     }
+
     public void getMeat(Sandwich sandwich) {
         boolean running = true;
         while (running) {
@@ -341,6 +314,7 @@ public void menu(){
             }
         }
     }
+
     public void getRegToppings(Sandwich sandwich) {
         boolean running = true;
         while (running) {
@@ -381,6 +355,7 @@ public void menu(){
             }
         }
     }
+
     public void getSauce(Sandwich sandwich) {
         boolean running = true;
         while (running) {
@@ -416,40 +391,36 @@ public void menu(){
             }
         }
     }
-    public void orderChip(){
+
+    public void orderChip() {
         Chips chips = getChip();
         if (chips != null) {
             foodCart.addItem(chips);
         }
 
     }
-    public void orderDrink(){
-        Drink drink= getDrink();
-        if (drink != null){
+
+    public void orderDrink() {
+        Drink drink = getDrink();
+        if (drink != null) {
             foodCart.addItem(drink);
         }
     }
-    public void displayOrder(){
-    foodCart.displayCart();
+
+    public void displayOrder() {
+        foodCart.displayCart();
         System.out.println("Would you like to check out?");
-        String answer = scanner.nextLine().toLowerCase();
-        if (answer.equalsIgnoreCase("yes")){
-            
-        }
-    }
-    public void checkout(){
-        if (foodCart.isEmpty()) {
-            System.out.println("Nothing in cart!");
-            return;
-        }
-        double totalAmount=0;
-        System.out.println("Items in your cart");
-        for (IPriceable item : foodCart) {
-            System.out.println(item);
-            totalAmount+=item.getPrice();
+        String response = scanner.nextLine();
+        if (response.equalsIgnoreCase("yes")){
+
+           foodCart.checkOut();
+        } else {
+            System.out.println("okay");
         }
     }
 
-}
+    }
+
+
 
 

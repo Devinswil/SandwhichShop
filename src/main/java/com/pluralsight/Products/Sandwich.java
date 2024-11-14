@@ -1,5 +1,6 @@
 package com.pluralsight.Products;
 
+import com.pluralsight.AbstractClasses.Merchandise;
 import com.pluralsight.AbstractClasses.Topping;
 import com.pluralsight.Interface.IPriceable;
 
@@ -7,7 +8,7 @@ import com.pluralsight.Interface.IPriceable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sandwich implements IPriceable {
+public class Sandwich extends Merchandise {
     private String breadType;
     private int size;
     private List<Topping> toppings;
