@@ -10,6 +10,7 @@ import java.util.List;
 public class Cart {
     private List<Merchandise> cart;
 
+
     public Cart() {
 
         this.cart = new ArrayList<>();

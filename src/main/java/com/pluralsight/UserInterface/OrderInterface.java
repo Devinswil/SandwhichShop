@@ -1,7 +1,6 @@
 package com.pluralsight.UserInterface;
 
 
-
 import com.pluralsight.Products.Chips;
 import com.pluralsight.Products.Drink;
 import com.pluralsight.Products.Sandwich;
@@ -17,8 +16,7 @@ import java.util.Scanner;
 public class OrderInterface {
     private static final Scanner scanner = new Scanner(System.in);
     Cart foodCart = new Cart();
-    private boolean checkOrder=false;
-
+    private boolean checkOrder = false;
 
     public void display() {
         boolean running = true;
@@ -35,11 +33,53 @@ public class OrderInterface {
                 case 2 -> running = false;
                 default -> System.out.println("Invalid option");
             }
-            if (chech)
+            if (checkOrder) {
+                running = false;
+            }
         }
     }
 
-    public void takeSandwichOrder() {
+    public void menu() {
+        boolean running = true;
+        while (running) {
+            System.out.println("1- Order Sandwich");
+            System.out.println("2- Add Chips");
+            System.out.println("3- Add Drink");
+            System.out.println("4- DisplayOrder");
+            System.out.println("5- Cancel order");
+            int answer = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (answer) {
+                case 1 -> beginSandwichOrder();
+                case 2 -> orderChip();
+                case 3 -> orderDrink();
+                case 4 -> displayOrder();
+                case 5 -> running = false;
+                default -> System.out.println("Invalid option");
+            }
+            if (checkOrder) {
+                running = false;
+            }
+        }
+    }
+
+    public void displayOrder() {
+        foodCart.displayCart();
+        if (foodCart != null) {
+            System.out.println("Would you like to check out?");
+            String response = scanner.nextLine();
+            if (response.equalsIgnoreCase("yes")) {
+                foodCart.checkOut();
+                checkOrder = true;
+
+            } else {
+                System.out.println("okay");
+            }
+        }
+    }
+
+    public void beginSandwichOrder() {
 
         int sandwichSize = getSizeSandwich();
         String breadType = getBreadType();
@@ -53,114 +93,6 @@ public class OrderInterface {
         foodCart.addItem(sandwich);
 
     }
-
-    public void menu() {
-        boolean running = true;
-        while (running) {
-            System.out.println("1- Order Sandwich");
-            System.out.println("2- Add Chips");
-            System.out.println("3- Add Drink");
-            System.out.println("4- DisplayOrder");
-            System.out.println("6- Cancel order");
-            int answer = scanner.nextInt();
-            scanner.nextLine();
-
-            switch (answer) {
-                case 1 -> takeSandwichOrder();
-                case 2 -> orderChip();
-                case 3 -> orderDrink();
-                case 4 -> displayOrder();
-                default -> System.out.println("Invalid option");
-            }
-        }
-    }
-
-    public Chips getChip() {
-        while (true) {
-            System.out.println("Would you like you like to add chips to your order");
-            String answer = scanner.nextLine().toLowerCase();
-            if (answer.equalsIgnoreCase("yes")) {
-                System.out.println("What Bread would you like your sandwich on?");
-                System.out.println("1) BBQ");
-                System.out.println("2) Original");
-                System.out.println("3) Sour Cream & Onion");
-                System.out.println("4) Sweet Maui Onion");
-                int chipChoice = scanner.nextInt();
-                scanner.nextLine();
-                String chipFlavor = null;
-                switch (chipChoice) {
-                    case 1 -> chipFlavor = "BBQ";
-                    case 2 -> chipFlavor = "Original";
-                    case 3 -> chipFlavor = "Sour Cream & Onion";
-                    case 4 -> chipFlavor = "Sweet Maui Onion";
-                    default -> {
-                        System.out.println("invalid option");
-                        continue;
-                    }
-                }
-                System.out.println(chipFlavor + " chips have been added to your order.");
-                return new Chips(chipFlavor);
-            } else if (answer.equalsIgnoreCase("no")) {
-                System.out.println("No chips have been added to your order.");
-            } else {
-                System.out.println("Invalid option. Please respond with 'yes' or 'no'.");
-            }
-        }
-    }
-
-    public Drink getDrink() {
-        while (true) {
-            System.out.println("Would you like to add a drink to your order?");
-            String answer = scanner.nextLine();
-            if (answer.equalsIgnoreCase("yes")) {
-                System.out.println("Choose a drink:");
-                System.out.println("1) Cola");
-                System.out.println("2) Lemonade");
-                System.out.println("3) Iced Tea");
-                System.out.println("4) Water");
-                int drinkChoice = scanner.nextInt();
-                scanner.nextLine();
-                String drinkFlavor = null;
-
-                switch (drinkChoice) {
-                    case 1 -> drinkFlavor = "Cola";
-                    case 2 -> drinkFlavor = "Lemonade";
-                    case 3 -> drinkFlavor = "Iced Tea";
-                    case 4 -> drinkFlavor = "Water";
-                    default -> {
-                        System.out.println("Invalid option");
-                        continue;
-                    }
-                }
-                System.out.println("What size would you like your " + drinkFlavor + "?");
-                System.out.println("1) Small");
-                System.out.println("2) Medium");
-                System.out.println("3) Large");
-
-                int sizeChoice = scanner.nextInt();
-                scanner.nextLine();  // Clear buffer
-
-                String drinkSize = null;
-                switch (sizeChoice) {
-                    case 1 -> drinkSize = "Small";
-                    case 2 -> drinkSize = "Medium";
-                    case 3 -> drinkSize = "Large";
-                    default -> {
-                        System.out.println("Invalid option. Please select a valid size.");
-                        continue;
-                    }
-                }
-
-                System.out.println(drinkSize + " " + drinkFlavor + " has been added to your order.");
-                return new Drink(drinkFlavor, drinkSize);
-            } else if (answer.equalsIgnoreCase("no")) {
-                System.out.println("No drink has been added to your order.");
-            } else {
-                System.out.println("Invalid option.");
-            }
-        }
-    }
-
 
     public String getBreadType() {
         while (true) {
@@ -391,12 +323,81 @@ public class OrderInterface {
         }
     }
 
+    public Chips getChip() {
+        while (true) {
+            System.out.println("What Bread would you like your sandwich on?");
+            System.out.println("1) BBQ");
+            System.out.println("2) Original");
+            System.out.println("3) Sour Cream & Onion");
+            System.out.println("4) Sweet Maui Onion");
+            int chipChoice = scanner.nextInt();
+            scanner.nextLine();
+            String chipFlavor = null;
+            switch (chipChoice) {
+                case 1 -> chipFlavor = "BBQ";
+                case 2 -> chipFlavor = "Original";
+                case 3 -> chipFlavor = "Sour Cream & Onion";
+                case 4 -> chipFlavor = "Sweet Maui Onion";
+                default -> {
+                    System.out.println("invalid option");
+                    continue;
+                }
+            }
+            System.out.println(chipFlavor + " chips have been added to your order.");
+            return new Chips(chipFlavor);
+
+        }
+    }
+
     public void orderChip() {
         Chips chips = getChip();
         if (chips != null) {
             foodCart.addItem(chips);
         }
 
+    }
+
+    public Drink getDrink() {
+        while (true) {
+                System.out.println("Choose a drink:");
+                System.out.println("1) Cola");
+                System.out.println("2) Lemonade");
+                System.out.println("3) Iced Tea");
+                System.out.println("4) Water");
+                int drinkChoice = scanner.nextInt();
+                scanner.nextLine();
+                String drinkFlavor = null;
+
+                switch (drinkChoice) {
+                    case 1 -> drinkFlavor = "Cola";
+                    case 2 -> drinkFlavor = "Lemonade";
+                    case 3 -> drinkFlavor = "Iced Tea";
+                    case 4 -> drinkFlavor = "Water";
+                    default -> {
+                        System.out.println("Invalid option");
+                        continue;
+                    }
+                }
+                System.out.println("What size would you like your " + drinkFlavor + "?");
+                System.out.println("1) Small");
+                System.out.println("2) Medium");
+                System.out.println("3) Large");
+                int sizeChoice = scanner.nextInt();
+                scanner.nextLine();
+                String drinkSize = null;
+                switch (sizeChoice) {
+                    case 1 -> drinkSize = "Small";
+                    case 2 -> drinkSize = "Medium";
+                    case 3 -> drinkSize = "Large";
+                    default -> {
+                        System.out.println("Invalid option. Please select a valid size.");
+                        continue;
+                    }
+                }
+                System.out.println(drinkSize + " " + drinkFlavor + " has been added to your order.");
+                return new Drink(drinkFlavor, drinkSize);
+
+        }
     }
 
     public void orderDrink() {
@@ -406,19 +407,8 @@ public class OrderInterface {
         }
     }
 
-    public void displayOrder() {
-        foodCart.displayCart();
-        System.out.println("Would you like to check out?");
-        String response = scanner.nextLine();
-        if (response.equalsIgnoreCase("yes")){
-           foodCart.checkOut();
 
-        } else {
-            System.out.println("okay");
-        }
-    }
-
-    }
+}
 
 
 
