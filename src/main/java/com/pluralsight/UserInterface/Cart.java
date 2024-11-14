@@ -14,7 +14,9 @@ public class Cart implements IPriceable {
         this.cart = new ArrayList<>();
     }
 
-
+public boolean isEmpty(){
+        return cart.isEmpty();
+}
 
     @Override
     public double getPrice() {
@@ -30,10 +32,10 @@ public class Cart implements IPriceable {
         cart.add(iPriceable);
     }
 
+
     public void displayCart() {
         if (cart.isEmpty()) {
             System.out.println("Nothing has been ordered");
-
         } else {
             System.out.println("Items in cart:");
             for (IPriceable iPriceable : cart) {

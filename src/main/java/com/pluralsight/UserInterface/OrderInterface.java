@@ -431,9 +431,23 @@ public void menu(){
     }
     public void displayOrder(){
     foodCart.displayCart();
+        System.out.println("Would you like to check out?");
+        String answer = scanner.nextLine().toLowerCase();
+        if (answer.equalsIgnoreCase("yes")){
+            
+        }
     }
     public void checkout(){
-        
+        if (foodCart.isEmpty()) {
+            System.out.println("Nothing in cart!");
+            return;
+        }
+        double totalAmount=0;
+        System.out.println("Items in your cart");
+        for (IPriceable item : foodCart) {
+            System.out.println(item);
+            totalAmount+=item.getPrice();
+        }
     }
 
 }
