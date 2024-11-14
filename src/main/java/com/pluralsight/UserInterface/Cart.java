@@ -32,15 +32,14 @@ public class Cart implements IPriceable {
 
     public void displayCart() {
         if (cart.isEmpty()) {
-            System.out.println("Order is empty");
+            System.out.println("Nothing has been ordered");
 
         } else {
             System.out.println("Items in cart:");
             for (IPriceable iPriceable : cart) {
-                System.out.println(iPriceable.toString() + " -price: "+ iPriceable.getPrice());
+                System.out.println(iPriceable.toString());
 
             }
-            System.out.println("Total Price: " + getPrice());
         }
     }
 }

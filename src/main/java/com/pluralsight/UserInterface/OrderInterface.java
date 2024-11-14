@@ -31,7 +31,7 @@ public class OrderInterface {
 
             switch (answer) {
                 case 1:
-                    takeOrder();
+                  menu();
                     break;
                 case 2:
                     running = false;
@@ -44,7 +44,7 @@ public class OrderInterface {
         }
     }
 
-    public void takeOrder() {
+    public void takeSandwichOrder() {
 
         int sandwichSize = getSizeSandwich();
         String breadType = getBreadType();
@@ -57,16 +57,40 @@ public class OrderInterface {
         getToppings(sandwich);
         foodCart.addItem(sandwich);
 
-        Chips chips = getChip();
-        if (chips != null) {
-            foodCart.addItem(chips);
-        }
-
-       Drink drink= getDrink();
-        if (drink != null){
-            foodCart.addItem(drink);
     }
 
+public void menu(){
+    boolean running = true;
+    while (running) {
+        System.out.println("1- Take Sandwich order");
+        System.out.println("2- Add Chips");
+        System.out.println("3- Add Drink");
+        System.out.println("4- Show order");
+        System.out.println("5- Checkout");
+        System.out.println("6- Cancel order");
+        int answer = scanner.nextInt();
+
+        switch (answer) {
+            case 1:
+                takeSandwichOrder();
+                break;
+            case 2:
+              orderChip();
+                break;
+            case 3:
+                orderDrink();
+                break;
+            case 4:
+               displayOrder();
+               break;
+            case 5:
+
+            default:
+                System.out.println("Invalid option");
+                break;
+
+        }
+    }
 }
 
     public Chips getChip() {
@@ -110,7 +134,6 @@ public class OrderInterface {
             }
         }
     }
-
     public Drink getDrink() {
         while (true) {
             System.out.println("Would you like to add a drink to your order?");
@@ -168,7 +191,6 @@ public class OrderInterface {
             }
         }
     }
-
     public String getBreadType() {
         while (true) {
             System.out.println("What Bread would you like your sandwich on?");
@@ -197,7 +219,6 @@ public class OrderInterface {
 
         }
     }
-
     public int getSizeSandwich() {
         while (true) {
             System.out.println("What size sandwich would you like to order?");
@@ -225,7 +246,6 @@ public class OrderInterface {
 
 
     }
-
     public boolean getSandwichToasted() {
         while (true) {
 
@@ -247,7 +267,6 @@ public class OrderInterface {
         }
 
     }
-
     public void getToppings(Sandwich sandwich) {
         System.out.println("Add to sandwich");
         getCheese(sandwich);
@@ -256,7 +275,6 @@ public class OrderInterface {
         getSauce(sandwich);
         System.out.println("Sandwich is now complete!");
     }
-
     public void getCheese(Sandwich sandwich) {
         boolean running = true;
         while (running) {
@@ -288,7 +306,6 @@ public class OrderInterface {
             }
         }
     }
-
     public void getMeat(Sandwich sandwich) {
         boolean running = true;
         while (running) {
@@ -324,7 +341,6 @@ public class OrderInterface {
             }
         }
     }
-
     public void getRegToppings(Sandwich sandwich) {
         boolean running = true;
         while (running) {
@@ -365,7 +381,6 @@ public class OrderInterface {
             }
         }
     }
-
     public void getSauce(Sandwich sandwich) {
         boolean running = true;
         while (running) {
@@ -400,6 +415,25 @@ public class OrderInterface {
 
             }
         }
+    }
+    public void orderChip(){
+        Chips chips = getChip();
+        if (chips != null) {
+            foodCart.addItem(chips);
+        }
+
+    }
+    public void orderDrink(){
+        Drink drink= getDrink();
+        if (drink != null){
+            foodCart.addItem(drink);
+        }
+    }
+    public void displayOrder(){
+    foodCart.displayCart();
+    }
+    public void checkout(){
+        
     }
 
 }
