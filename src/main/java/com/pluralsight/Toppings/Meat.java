@@ -27,6 +27,10 @@ public class Meat extends PremiumTopping {
         }
     }
 
+    @Override
+    public String toString() {
+        return getName();
+    }
 }
 
 

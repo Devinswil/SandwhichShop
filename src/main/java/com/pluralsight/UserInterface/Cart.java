@@ -51,7 +51,7 @@ public class Cart {
             return;
         }
         double totalAmount=getPrice();
-        System.out.println("Total Amount $ "+ totalAmount+ "has been deducted from your account");
+        System.out.println("Total Amount $ "+ totalAmount+ " has been deducted from your account");
         clearCart();
         System.out.println("Enjoy your food!");
 

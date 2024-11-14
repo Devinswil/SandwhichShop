@@ -17,6 +17,7 @@ import java.util.Scanner;
 public class OrderInterface {
     private static final Scanner scanner = new Scanner(System.in);
     Cart foodCart = new Cart();
+    private boolean checkOrder=false;
 
 
     public void display() {
@@ -34,6 +35,7 @@ public class OrderInterface {
                 case 2 -> running = false;
                 default -> System.out.println("Invalid option");
             }
+            if (chech)
         }
     }
 
@@ -55,13 +57,13 @@ public class OrderInterface {
     public void menu() {
         boolean running = true;
         while (running) {
-            System.out.println("1- Take Sandwich order");
+            System.out.println("1- Order Sandwich");
             System.out.println("2- Add Chips");
             System.out.println("3- Add Drink");
-            System.out.println("4- Show order");
-            System.out.println("5- Checkout");
+            System.out.println("4- DisplayOrder");
             System.out.println("6- Cancel order");
             int answer = scanner.nextInt();
+            scanner.nextLine();
 
             switch (answer) {
                 case 1 -> takeSandwichOrder();
@@ -159,6 +161,7 @@ public class OrderInterface {
         }
     }
 
+
     public String getBreadType() {
         while (true) {
             System.out.println("What Bread would you like your sandwich on?");
@@ -239,7 +242,6 @@ public class OrderInterface {
     }
 
     public void getToppings(Sandwich sandwich) {
-        System.out.println("Add to sandwich");
         getCheese(sandwich);
         getMeat(sandwich);
         getRegToppings(sandwich);
@@ -248,15 +250,15 @@ public class OrderInterface {
     }
 
     public void getCheese(Sandwich sandwich) {
+        System.out.println("What cheese would you like to add to your sandwich");
+        System.out.println("Cost of Premium toppings will vary on the size of bread!");
         boolean running = true;
         while (running) {
-            System.out.println("What cheese would you like to add to your sandwich");
-            System.out.println("Cost will vary on the size of bread!");
             System.out.println("1) American");
             System.out.println("2) Provolone");
             System.out.println("3) Cheddar");
             System.out.println("4) Swiss");
-            System.out.println("5) None");
+            System.out.println("5) That's it");
             int answer = scanner.nextInt();
             scanner.nextLine();
             String cheese = null;
@@ -280,17 +282,16 @@ public class OrderInterface {
     }
 
     public void getMeat(Sandwich sandwich) {
+        System.out.println("What Meat would you like to add to your sandwich");
         boolean running = true;
         while (running) {
-            System.out.println("What Meat would you like to add to your sandwich");
-            System.out.println("Cost will vary on the size of bread!");
             System.out.println("1) Steak");
             System.out.println("2) Ham");
             System.out.println("3) Salami");
             System.out.println("4) Roast Beef");
             System.out.println("5) Chicken");
             System.out.println("6) Bacon");
-            System.out.println("7) None");
+            System.out.println("7) That's it");
             int answer = scanner.nextInt();
             scanner.nextLine();
             String meat = null;
@@ -316,9 +317,9 @@ public class OrderInterface {
     }
 
     public void getRegToppings(Sandwich sandwich) {
+        System.out.println("What toppings would you like to add to your sandwich");
         boolean running = true;
         while (running) {
-            System.out.println("What toppings would you like to add to your sandwich");
             System.out.println("1) Lettuce");
             System.out.println("2) Peppers");
             System.out.println("3) Onions");
@@ -328,8 +329,7 @@ public class OrderInterface {
             System.out.println("7) Pickles");
             System.out.println("8) Guacamole");
             System.out.println("9) Mushrooms");
-
-            System.out.println("10) None");
+            System.out.println("10) That's it");
             int answer = scanner.nextInt();
             scanner.nextLine();
             String topping = null;
@@ -357,17 +357,16 @@ public class OrderInterface {
     }
 
     public void getSauce(Sandwich sandwich) {
+        System.out.println("What sauce would you like to add to your sandwich");
         boolean running = true;
         while (running) {
-            System.out.println("What sauce would you like to add to your sandwich");
-            System.out.println("Cost will vary on the size of bread!");
             System.out.println("1) Mayo");
             System.out.println("2) Mustard");
             System.out.println("3) Ketchup");
             System.out.println("4) Ranch");
             System.out.println("5) Thousand island");
             System.out.println("6) Vinaigrette");
-            System.out.println("7) None");
+            System.out.println("7) That's it");
             int answer = scanner.nextInt();
             scanner.nextLine();
             String sauce = null;
@@ -412,8 +411,8 @@ public class OrderInterface {
         System.out.println("Would you like to check out?");
         String response = scanner.nextLine();
         if (response.equalsIgnoreCase("yes")){
-
            foodCart.checkOut();
+
         } else {
             System.out.println("okay");
         }

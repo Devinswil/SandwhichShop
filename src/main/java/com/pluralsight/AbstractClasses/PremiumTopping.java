@@ -12,6 +12,6 @@ public abstract class PremiumTopping extends Topping {
 
     @Override
     public String toString() {
-        return "PremiumTopping "+ name ;
+        return "Premium "+ name ;
     }
 }

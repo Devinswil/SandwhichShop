@@ -85,7 +85,7 @@ public class Sandwich extends Merchandise {
 
     public void getToasted() {
         if (isToasted) {
-            System.out.println("toasting your sandwich");
+            System.out.println("Toasting your sandwich");
             try {
                 Thread.sleep(3000);
             } catch (InterruptedException e) {
@@ -98,11 +98,8 @@ public class Sandwich extends Merchandise {
 
     @Override
     public String toString() {
-        return "Sandwich " +
-                "is a" + size + '\'' +
-                ", inch " + breadType + "sub "+'\'' +
-                ", with" + toppings +"on it"+
-                ", isToasted=" + (isToasted ? "yes": "no") ;
+        return "Sandwich is a " + (isToasted ? "toasted " : "") +
+                size + " inch " + breadType + " sub, with " + toppings + " on it." ;
     }
 }
 

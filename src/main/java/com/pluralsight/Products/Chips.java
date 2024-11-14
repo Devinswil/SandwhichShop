@@ -25,7 +25,7 @@ public class Chips extends Merchandise {
 
     @Override
     public String toString() {
-        return "Chips " + type ;
+        return  type + " Chips"  ;
     }
 
 }

@@ -47,7 +47,7 @@ public class Drink extends Merchandise {
 
     @Override
     public String toString() {
-        return "Drink" + " "+ size+ " " + flavor;
+        return size+ " " + flavor;
 
     }
 }
