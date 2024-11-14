@@ -7,7 +7,7 @@ import com.pluralsight.Products.Chips;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cart {
+public class Cart implements IPriceable{
     private List<Merchandise> cart;
     private double salesTax=.07;
 
