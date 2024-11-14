@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Cart {
     private List<Merchandise> cart;
-
+    private double salesTax=.07;
 
     public Cart() {
 
@@ -51,8 +51,10 @@ public class Cart {
             System.out.println("Nothing has been ordered");
             return;
         }
-        double totalAmount=getPrice();
-        System.out.println("Total Amount $ "+ totalAmount+ " has been deducted from your account");
+        double preTotalAmount=getPrice();
+        double afterTaxTotal= preTotalAmount + (preTotalAmount * salesTax);
+        System.out.printf("Total Cost before Tax: $%.2f%n", preTotalAmount);
+        System.out.printf("Total Cost after Tax: $%.2f%n", afterTaxTotal);
         clearCart();
         System.out.println("Enjoy your food!");
 
