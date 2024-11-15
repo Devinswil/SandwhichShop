@@ -1,0 +1,17 @@
+********Dev-lious Subs********
+1(800)Dev-lious
+Manager Devin
+Sandwich:
+Size 12.0 inch WheatBread is toasted true with [Cheddar, Bacon, Pickles, Onions, Tomatoes, Peppers, Vinaigrette] on itPrice: $13.75
+
+ Drink
+Flavor Water
+Size Large
+Price: $3.00
+
+BBQ Chips
+Price: $1.50
+
+---------------------
+Total Amount: $19.53
+---------------------

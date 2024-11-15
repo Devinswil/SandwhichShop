@@ -60,15 +60,7 @@ public class Sandwich extends Merchandise {
         }
         return sandPrice;
     }
-public double getCostOfSandwich(){
-    double sandPrice = 0;
-    sandPrice += getBasePrice();
-    for (Topping topping : toppings) {
-        sandPrice += topping.getPrice(size);
 
-    }
-    return sandPrice;
-}
     public double getBasePrice() {
 
         double sizePrice = 0;

@@ -4,6 +4,7 @@ package com.pluralsight.UserInterface;
 import com.pluralsight.Products.Chips;
 import com.pluralsight.Products.Drink;
 import com.pluralsight.Products.Sandwich;
+import com.pluralsight.Receipt.ReceiptFileManager;
 import com.pluralsight.Toppings.Cheese;
 import com.pluralsight.Toppings.Meat;
 import com.pluralsight.Toppings.RegularTopping;
@@ -70,12 +71,13 @@ public class OrderInterface {
     public void displayOrder() {
         foodCart.displayCart();
         if (!foodCart.isEmpty()) {
-            System.out.println("Would you like to check out?");
+            System.out.println("Would you like to check out? Yes/No");
             String response = scanner.nextLine();
             if (response.equalsIgnoreCase("yes")) {
+                ReceiptFileManager receiptFileManager = new ReceiptFileManager();
+                receiptFileManager.saveReceipt(foodCart);
                 foodCart.checkOut();
                 checkOrder = true;
-
             } else {
                 System.out.println("okay");
             }

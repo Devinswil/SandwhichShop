@@ -9,6 +9,11 @@ import java.util.List;
 
 public class Cart implements IPriceable{
     private List<Merchandise> cart;
+
+    public List<Merchandise> getCart() {
+        return cart;
+    }
+
     private double salesTax=.07;
 
     public Cart() {
@@ -42,6 +47,8 @@ public class Cart implements IPriceable{
             System.out.println("Items in cart:");
             for (Merchandise merchandise : cart) {
                 System.out.println(merchandise.toString());
+                System.out.println(merchandise.getPrice());
+
 
             }
         }
@@ -71,4 +78,5 @@ public class Cart implements IPriceable{
         return totalPrice+(totalPrice*.07);
 
     }
+
 }
