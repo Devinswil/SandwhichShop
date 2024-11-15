@@ -1,5 +1,5 @@
 # Project Title
-
+Dev-lious  Subs the amazing Sandwich Shop
 ## Description of the Project
 
 Welcome to our online sandwich shop, where you can fully customize your sandwich experience. Not only can you create your perfect sandwich with a variety of options, but you can also pair it with chips and a drink of your choice. Once you've crafted your ideal meal, you can easily check out and receive a detailed receipt, giving you a full breakdown of your order and total spend. It's the ultimate way to enjoy a Dev-lious sub!
@@ -7,15 +7,25 @@ Welcome to our online sandwich shop, where you can fully customize your sandwich
 ## User Stories
 
 -As the user I would like to be able to buy a sandwich.
+
 -As the user I would like to be able to check out once I am finished with my order.
+
 -As the user I would like to add regular toppings to my sandwiches.
+
 -As the user I would like to be able to toast my sandwich.
+
 -As the user I would like to add sauces to my sandwiches.
+
 -As the user I would like to be able to add cheese to my sandwich.
+
 -As the user I would like to be able to select different meats that I would like to buy.
+
 -As the user I would like to be able to buy chips.
+
 -As the user I would like to print out order receipts after every confirmed purchase.
+
 -As the user I would like to be able to select the size of my bread.
+
 -As the user I would like to be able to buy a drink.
 ## Setup
 
@@ -45,6 +55,8 @@ Selecting chips and drinks
 ![img_3.png](img_3.png)
 Checking out
 ![img_4.png](img_4.png)
+Diagram
+![img_5.png](img_5.png)
 
 ## Future Work
 

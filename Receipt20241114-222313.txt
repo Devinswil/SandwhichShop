@@ -1,0 +1,23 @@
+********Dev-lious Subs********
+1(800)Dev-lious
+Manager Devin
+Sandwich:
+4.0 inch White Bread is toasted true with [Provolone, Steak, Lettuce, Cucumbers, Pickles, Mayo] on it
+Price: $7.25
+
+Sandwich:
+8.0 inch Wheat Bread is toasted false with [American, Salami, Lettuce, Tomatoes, Mayo] on it
+Price: $10.50
+
+Chips
+BBQ Chips
+Price: $1.50
+
+Drink
+Flavor Cola
+Size Large
+Price: $3.00
+
+---------------------
+Total Amount: $23.81
+---------------------

@@ -24,7 +24,7 @@ public class OrderInterface {
         while (running) {
             System.out.println("****** Welcome to Dev-lious Subs ******");
             System.out.println("please select a number for corresponding selection");
-            System.out.println("Would you like to place and order?");
+            System.out.println("Would you like to place an order?");
             System.out.println("1-Yes");
             System.out.println("2-No");
             int answer = scanner.nextInt();
@@ -105,7 +105,7 @@ public class OrderInterface {
             System.out.println("1) White");
             System.out.println("2) Wheat");
             System.out.println("3) Rye");
-            System.out.println("4) Wrap");
+            System.out.println("4) SourDough");
             int answer = scanner.nextInt();
             scanner.nextLine();
             String breadChoice = null;
@@ -187,7 +187,7 @@ public class OrderInterface {
             System.out.println("2- Provolone");
             System.out.println("3- Cheddar");
             System.out.println("4- Swiss");
-            System.out.println("5- That's it");
+            System.out.println("5- That's it(done with cheese)");
             int answer = scanner.nextInt();
             scanner.nextLine();
             String cheese = null;
@@ -220,7 +220,7 @@ public class OrderInterface {
             System.out.println("4- Roast Beef");
             System.out.println("5- Chicken");
             System.out.println("6- Bacon");
-            System.out.println("7- That's it");
+            System.out.println("7- That's it(done with meat)");
             int answer = scanner.nextInt();
             scanner.nextLine();
             String meat = null;
@@ -258,7 +258,7 @@ public class OrderInterface {
             System.out.println("7- Pickles");
             System.out.println("8- Guacamole");
             System.out.println("9- Mushrooms");
-            System.out.println("0- That's it");
+            System.out.println("0- That's it(done with toppings)");
             int answer = scanner.nextInt();
             scanner.nextLine();
             String topping = null;
@@ -295,7 +295,7 @@ public class OrderInterface {
             System.out.println("4- Ranch");
             System.out.println("5- Thousand island");
             System.out.println("6- Vinaigrette");
-            System.out.println("7- That's it");
+            System.out.println("7- That's it(done with sauce)");
             int answer = scanner.nextInt();
             scanner.nextLine();
             String sauce = null;
@@ -311,6 +311,7 @@ public class OrderInterface {
                     continue;
                 }
                 default -> System.out.println("Invalid option");
+
             }
             if (sauce != null) {
                 sandwich.addTopping(new Sauce(sauce));

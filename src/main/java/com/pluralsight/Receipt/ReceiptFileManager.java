@@ -29,7 +29,7 @@ public class ReceiptFileManager {
                     //casting merchandise to sandwich in order to have access
                     bw.write("Sandwich:\n");
                     bw.write( sandwich.getSize() + " inch ");
-                    bw.write(sandwich.getBreadType() + " Bread ");
+                    bw.write(sandwich.getBreadType() + " bread sub");
                     bw.write("is toasted " + (sandwich.isToasted()));
                     bw.write(" with " + sandwich.getToppings().toString() + " on it\n");
                     bw.write("Price: $" + String.format("%.2f", sandwich.getPrice()) + "\n\n");
