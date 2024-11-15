@@ -62,4 +62,13 @@ public class Cart implements IPriceable{
     public void clearCart(){
         cart.clear();
     }
+    public double receiptPrice(){
+        double totalPrice = 0;
+        for (Merchandise merchandise : cart) {
+            totalPrice += merchandise.getPrice();
+
+        }
+        return totalPrice+(totalPrice*.07);
+
+    }
 }
