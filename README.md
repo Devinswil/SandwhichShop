@@ -2,21 +2,24 @@
 
 ## Description of the Project
 
-Briefly describe what this Java console application does. Mention its purpose and who the intended users are. Explain the main functionality and what problems it aims to solve.
-
-![Class Diagram](path/to/your/class_diagram.png)
+Welcome to our online sandwich shop, where you can fully customize your sandwich experience. Not only can you create your perfect sandwich with a variety of options, but you can also pair it with chips and a drink of your choice. Once you've crafted your ideal meal, you can easily check out and receive a detailed receipt, giving you a full breakdown of your order and total spend. It's the ultimate way to enjoy a Dev-lious sub!
 
 ## User Stories
 
-List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
-
-- As a user, I want to be able to input my data, so that the application can process it accordingly.
-- As a user, I want to receive immediate feedback, so I can understand what to do next.
-
+-As the user I would like to be able to buy a sandwich.
+-As the user I would like to be able to check out once I am finished with my order.
+-As the user I would like to add regular toppings to my sandwiches.
+-As the user I would like to be able to toast my sandwich.
+-As the user I would like to add sauces to my sandwiches.
+-As the user I would like to be able to add cheese to my sandwich.
+-As the user I would like to be able to select different meats that I would like to buy.
+-As the user I would like to be able to buy chips.
+-As the user I would like to print out order receipts after every confirmed purchase.
+-As the user I would like to be able to select the size of my bread.
+-As the user I would like to be able to buy a drink.
 ## Setup
 
-Instructions on how to set up and run the project using IntelliJ IDEA.
-
+The application will feature a series of menus where users can make selections by inputting numbers. In certain menus, users will also be prompted with yes or no questions to further customize their order. Once the user is satisfied with their choices, they can proceed to check out and enjoy their food.
 ### Prerequisites
 
 - IntelliJ IDEA: Ensure you have IntelliJ IDEA installed, which you can download from [here](https://www.jetbrains.com/idea/download/).
@@ -29,42 +32,39 @@ Follow these steps to get your application running within IntelliJ IDEA:
 1. Open IntelliJ IDEA.
 2. Select "Open" and navigate to the directory where you cloned or downloaded the project.
 3. After the project opens, wait for IntelliJ to index the files and set up the project.
-4. Find the main class with the `public static void main(String[] args)` method.
+4. Find the main class "Application" method.
 5. Right-click on the file and select 'Run 'YourMainClassName.main()'' to start the application.
 
 ## Technologies Used
 
-- Java: Mention the version you are using.
-- Any additional libraries or frameworks used in the project.
-
+- IntelliJ IDEA Community Edition 2022.3.2
 ## Demo
-
-Include screenshots or GIFs that show your application in action. Use tools like [Giphy Capture](https://giphy.com/apps/giphycapture) to record a GIF of your application.
-
-![Application Screenshot](path/to/your/screenshot.png)
+Making Sandwich and adding various toppings
+![img_2.png](img_2.png)
+Selecting chips and drinks
+![img_3.png](img_3.png)
+Checking out
+![img_4.png](img_4.png)
 
 ## Future Work
 
-Outline potential future enhancements or functionalities you might consider adding:
-
-- Additional feature to be developed.
-- Improvement of current functionalities.
+*As the user I would like to be able to print out daily sales
 
 ## Resources
+https://github.com/RayMaroun
+https://stackoverflow.com/questions/14145235/java-arraylist-check-if-list-is-empty
+https://www.bing.com/search?pglt=2083&q=how+to+write+to+a+new+file+in+java+while+saving+pervious+one&cvid=39034b0ac3c94ffaa674f822b59eef4e&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOTIICAEQ6QcY_FXSAQkxNjMzNWowajGoAgCwAgE&FORM=ANNAB1&PC=U531
+https://www.w3schools.com/java/java_files_create.asp
 
-List resources such as tutorials, articles, or documentation that helped you during the project.
 
-- [Java Programming Tutorial](https://www.example.com)
-- [Effective Java](https://www.example.com)
+## Shoutouts
 
-## Team Members
+- Brandon, helped with answering questions and conversed while working.
+- Emre, helped with confusion on methods.
+- Cameron, helped with confusion on methods too.
 
-- **Name 1** - Specific contributions or roles.
-- **Name 2** - Specific contributions or roles.
 
 ## Thanks
 
-Express gratitude towards those who provided help, guidance, or resources:
-
-- Thank you to [Mentor's Name] for continuous support and guidance.
-- A special thanks to all teammates for their dedication and teamwork.
+- Thank you to Raymond for continuous support and guidance. Also for the constant reminder to read directions :)
+- A special thanks to all peers for their dedication and teamwork, it is really appreciated!
