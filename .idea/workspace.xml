@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17b20136-e9ec-4074-8291-625b6ee19325" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/pluralsight/Products/SandwichTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/pluralsight/UserInterface/CartTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="17b20136-e9ec-4074-8291-625b6ee19325" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
